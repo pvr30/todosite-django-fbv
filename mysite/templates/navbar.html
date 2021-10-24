@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" class="navbar navbar-light" style="background-color: #e3f2fd;">
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <h5 class="nav-link"s>Welcome {{user}}</h5>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}">
+            <input name="keyword" type="text" placeholder="Enter Keyword" class="form-control mr-sm-2">
+            <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Search</button>
+        </form>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        
+        {% endif %}
+        
+      </ul>
+      
+    </div>
+  </nav>

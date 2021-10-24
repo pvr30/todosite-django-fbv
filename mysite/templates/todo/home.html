@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+
+<br>
+
+    <form class="form-inline" method='POST' action="{% url 'add_task' %}">
+        {% csrf_token %}
+      <input type="text" name="task" class="form-control mr-sm-2" placeholder="add..." aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add Task</button>
+    </form>
+
+
+<br><br><br><br>
+    {% for task in tasks %}
+        <div class="card">
+            <div class="card-body">
+                <strong>{{task.task}}</strong>
+                <a href="{% url 'edit' task.id %}" class="btn btn-primary">Edit</a>
+                <a href="{% url 'delete' task.id %}" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+
+{% endblock %}
