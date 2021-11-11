@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-quej(78s_7c$j+q$u@$lk8uermgntpd_#c4(9^rwnt3ma6ym&4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['todo-site-pvr.herokuapp.com']
 
 
 # Application definition
